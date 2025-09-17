@@ -1,7 +1,19 @@
 const Listing = require('../models/listing.js');
 
 module.exports.index = async (req, res) => {
-    let allListing = await Listing.find({});
+    const { search } = req.query;
+    let filter = {};
+    if (search) {
+        if (!isNaN(search)) {
+            filter.price = { $lte: parseInt(search) };
+        } else {
+            filter.$or = [
+                { location: { $regex: search, $options: 'i' } },
+                { country: { $regex: search, $options: 'i' } }
+            ];
+        }
+    }
+    let allListing = await Listing.find(filter);
     res.render("listings/index", { allListing });
 };
 

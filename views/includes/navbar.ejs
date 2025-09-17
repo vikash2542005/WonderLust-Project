@@ -18,10 +18,43 @@
 
 .searchInput{
   border-radius: 25px;
-  padding: 0.5rem 3rem o.5rem 3rem;
+  padding: 0.5rem 3rem 0.5rem 3rem;
   font-size: 1rem;
+  width: 18rem;
+}
+
+/* Responsive navbar adjustments for small screens */
+@media (max-width: 576px) {
+  nav.navbar {
+    height: auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+  .navbar-nav {
+    flex-direction: column !important;
+    align-items: center;
+  }
+  .navbar-nav .nav-link {
+    padding: 0.25rem 0 !important;
+  }
+  .navbar-nav.ms-auto {
+    margin-top: 0.5rem;
+  }
+  .d-flex {
+    flex-direction: column !important;
+    align-items: stretch;
+  }
+  .searchInput {
+    width: 100% !important;
+    margin-bottom: 0.5rem;
+  }
+  .btnSearch {
+    width: 100% !important;
+  }
 }
 </style>
+
+<div class="d-md-none text-center py-2 bg-light" style="width: 100%; color: red; font-weight: bold; font-size: 2rem; margin: 0 auto;">WonderLust</div>
 
 <nav class="navbar navbar-expand-md bg-body-tertiary border-bottom sticky-top">
   <div class="container-fluid">
@@ -37,13 +70,13 @@
     </div>
 
     <div class=" navbar-nav ms-auto">
-      <form class="d-flex" role="search">
-        <input class="form-control me-2 searchInput" type="search" placeholder="Search your Destination"/>
+      <form class="d-flex" role="search" action="/listings" method="GET">
+        <input class="form-control me-2 searchInput" type="search" name="search" placeholder="Search Destination"/>
         <button class="btn btnSearch" type="submit"> <i class="fa-solid fa-magnifying-glass"></i> Search </button>
       </form>
     </div>
 
-      <div class="navbar-nav ms-auto">
+    <div class="navbar-nav ms-auto">
           <a class="nav-link" href="/listings/new">AirBnb your home</a>
           <% if(! currUser ) { %>
               <a class="nav-link " aria-current="page" href="/signup"><b>Sign up</b></a>
