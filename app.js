@@ -98,9 +98,9 @@ const sessionOptions = {
 };
 
 //Root Route
-// app.get('/', (req, res) => {
-//     res.redirect("/signup");
-// });
+app.get('/', (req, res) => {
+    res.redirect("/signup");
+});
 
 //Using Session & flash
 app.use(session(sessionOptions));
