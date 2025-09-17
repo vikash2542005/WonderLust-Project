@@ -1,0 +1,58 @@
+<% layout("/layouts/boilerplate") %>
+<body>
+
+    <div class="row">
+    <div class="col-8 offset-2">
+    <br><br>
+    <h2>create a new Listing</h2>
+    <hr>
+    <form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+
+        <div class="mb-3">
+        <label for="title" class="form-label">Title</label>
+        <input type="text" name="listing[title]" class="form-control" placeholder="Enter Title" required>
+        <div class="invalid-feedback">Title Required</div>
+        </div>
+
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea type="text" name="listing[description]" class="form-control" placeholder="Description" required></textarea>
+            <div class="invalid-feedback">Add a Discription</div>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Upload an Image</label>
+            <input type="file" name="listing[image]" class="form-control">
+            <div class="invalid-feedback">Add an image</div>
+        </div>
+
+        <div class="row">
+
+        <div class="mb-3 col-md-4">
+            <label for="price" class="form-label">Price</label>
+            <input name="listing[price]" class="form-control" placeholder="Enter Price" required>
+            <div class="invalid-feedback">Price required</div>
+        </div>
+
+        <div class="mb-3 col-md-8">
+            <label for="country" class="form-label">Country</label>
+            <input type="text" name="listing[country]" class="form-control" placeholder="Enter Country" required>
+            <div class="invalid-feedback">Country Required</div>
+        </div>
+
+        </div>
+
+        <div class="mb-3">
+            <label for="location" class="form-label">Location</label>
+            <input type="text" name="listing[location]" class="form-control" placeholder="Enter Location" required>
+            <div class="invalid-feedback">Location Required</div>
+        </div> 
+       
+        <button class="btn btn-dark add-btn">Add Destination</button> &nbsp; <button type="reset" class="btn btn-dark rst-btn">Reset</button>
+        <br><br>
+    </form>
+</body>
+</div>
+</div>
+       
